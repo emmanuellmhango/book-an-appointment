@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  margin-top: px;
+  position: fixed;
+  width: 100%;
+}
+
+.nav-wrapper {
+  background-color: rgb(255, 176, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 15px;
+}
+
+.nav-pop {
+  color: #fff;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.nav-search {
+  background-color: #fff;
+  border-radius: 25px;
+  height: 40px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-search-icon {
+  color: rgb(255, 176, 0);
+  font-size: 1.2rem;
+}
+
+.header {
+  background-image: url(../images/doctor.png);
+  background-size: 700px 553px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(255, 176, 0);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-title {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.header-book-btn {
+  background-color: rgb(140, 192, 38);
+  border-radius: 25px;
+  padding: 15px;
+  color: #fff;
+  font-weight: bold;
+}
