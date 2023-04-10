@@ -18,10 +18,26 @@ body {
   padding: 0 15px;
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 200px;
+  height: 100vh;
+  background-color: rgb(255, 176, 0);
+  transition: left 0.3s ease-in-out;
+  border-right: rgba(212, 211, 211, 0.6) 2px solid;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
 .nav-pop {
   color: #fff;
   font-weight: bold;
   font-size: 2.5rem;
+  cursor: pointer;
 }
 
 .nav-search {
@@ -65,4 +81,39 @@ body {
   padding: 15px;
   color: #fff;
   font-weight: bold;
+}
+
+.nav-pop-active {
+  color: rgb(255, 176, 0);
+  height: 100vh;
+  width: 150px;
+  border-right: #c7c5c5 1px solid;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  margin-bottom: 5px;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.sidebar-item:hover {
+  background-color: rgb(140, 192, 38);
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+}
+
+.close-nav {
+  position: absolute;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  font-weight: normal;
+  display: none;
 }
