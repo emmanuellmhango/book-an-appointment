@@ -18,19 +18,27 @@ body {
   padding: 0 15px;
 }
 
+.header-book-btn-space {
+  margin-top: 20px;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
   left: -200px;
   width: 200px;
   height: 100vh;
-  background-color: rgb(255, 176, 0);
   transition: left 0.3s ease-in-out;
   border-right: rgba(212, 211, 211, 0.6) 2px solid;
+  background-color: rgb(255, 176, 0);
 }
 
 .sidebar.show {
   left: 0;
+}
+
+.humburger {
+  display: none;
 }
 
 .nav-pop {
@@ -81,6 +89,23 @@ body {
   padding: 15px;
   color: #fff;
   font-weight: bold;
+  width: 100px;
+  cursor: pointer;
+}
+
+.header-book-btn-signup {
+  color: rgb(140, 192, 38);
+  border-radius: 25px;
+  padding: 15px;
+  background-color: #fff;
+  font-weight: bold;
+  width: 100px;
+  cursor: pointer;
+}
+
+.header-book-btn:hover,
+.header-book-btn-signup:hover {
+  padding: 20px;
 }
 
 .nav-pop-active {
@@ -111,9 +136,11 @@ body {
 
 .close-nav {
   position: absolute;
-  font-size: 2rem;
-  color: #000;
+  font-size: 3rem;
+  color: #fff;
   cursor: pointer;
   font-weight: normal;
   display: none;
+  width: 100px;
+  height: 100px;
 }
