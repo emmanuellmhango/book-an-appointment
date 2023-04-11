@@ -1,6 +1,6 @@
 import React from 'react';
+import SideBar from './SideBar';
 import '../styles/style.css';
-import logo from '../images/logo.png';
 
 const Header = () => {
   const toggleNav = () => {
@@ -19,11 +19,6 @@ const Header = () => {
     toggleNav();
   };
 
-  const handleKeyDowncloseNav = (e) => {
-    e.preventDefault();
-    toggleNav();
-  };
-
   return (
     <>
       <nav className="nav">
@@ -36,7 +31,7 @@ const Header = () => {
             onClick={toggleNav}
             onKeyDown={handleKeyDown}
           >
-            &#9868;
+            <span className="humburger">&#9868;</span>
           </div>
           <div className="nav-search">
             <span className="nav-search-icon">
@@ -45,30 +40,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <nav className="sidebar" id="sidebar">
-        <div className="sidebar-header">
-          <div className="sidebar-header-icon">
-            <img src={logo} alt="Our logo" />
-          </div>
-        </div>
-        <ul className="sidebar-list">
-          <li className="sidebar-item">Doctors</li>
-          <li className="sidebar-item">Add Doctor</li>
-          <li className="sidebar-item">Delete Doctor</li>
-          <li className="sidebar-item">Reserve</li>
-          <li className="sidebar-item">My Reservations</li>
-        </ul>
-      </nav>
-      <div
-        className="close-nav"
-        id="close-nav"
-        role="button"
-        tabIndex={0}
-        onClick={toggleNav}
-        onKeyDown={handleKeyDowncloseNav}
-      >
-        <span className="close">&#9746;</span>
-      </div>
+      <SideBar />
     </>
   );
 };
