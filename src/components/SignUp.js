@@ -32,14 +32,25 @@ const SignUpComponent = () => {
 
   return (
     <div className="sign-up-form">
+
+      <h1> Welcome, please sign-up to continue</h1>
       {/* Render message */}
-      <p>{message}</p>
-      <input className="name" type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-      <input className="email" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input className="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <input className="password-confirmation" type="password" placeholder="Password Confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
-      <button className="button" type="button" onClick={handleSignUp}>Sign Up</button>
-      <Link to="/signin">Sign In</Link>
+      <div className="name-field">
+        <p>{message}</p>
+        <input className="name" type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="email" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </div>
+
+      <div className="pass-field">
+        <input className="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input className="password-confirmation" type="password" placeholder="Password Confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
+      </div>
+
+      <div className="btn-field">
+        <button className="button" type="button" onClick={handleSignUp}>Sign Up</button>
+        <Link to="/signin">Sign In</Link>
+      </div>
+
     </div>
   );
 };

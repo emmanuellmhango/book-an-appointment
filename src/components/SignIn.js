@@ -56,15 +56,22 @@ const SignInComponent = () => {
 
   return (
     <div className="sign-in-form">
-      {/* Render message */}
-      <p>{message}</p>
-      {/* Sign-in inputs */}
-      <input className="email" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input className="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button className="button" type="button" onClick={handleSignIn}>Sign In</button>
 
-      {/* Sign-out button */}
-      <button type="button" onClick={handleSignOut}>Sign Out</button>
+      <h1> Welcome, please sign in to continue</h1>
+      {/* Render message */}
+
+      <div className="btn-log">
+        <p>{message}</p>
+        {/* Sign-in inputs */}
+        <input className="email" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      </div>
+      <div className="btn">
+        <button className="button" type="button" onClick={handleSignIn}>Sign In</button>
+
+        {/* Sign-out button */}
+        <button type="button" onClick={handleSignOut}>Sign Out</button>
+      </div>
     </div>
   );
 };
