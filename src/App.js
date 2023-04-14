@@ -5,6 +5,7 @@ import Body from './components/Body';
 import Main from './components/Main';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import AddDoctor from './components/AddDoctor';
 // import Footer from './components/Footer';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/add_doctor" element={<AddDoctor />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
