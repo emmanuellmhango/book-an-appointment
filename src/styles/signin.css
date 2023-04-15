@@ -1,0 +1,28 @@
+.sign-in-form {
+  padding-top: 16rem;
+  background-image: url(../images/bg111.jpg);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: blue;
+  font-style: italic;
+}
+
+.btn-log {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
