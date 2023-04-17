@@ -4,7 +4,7 @@ import '../styles/main.css';
 import { fetchDoctors } from '../redux/doctors';
 
 const Main = () => {
-  const doctors = useSelector((state) => state.doctors);
+  const doctors = useSelector((state) => state.doctors.doctors);
   const { length } = doctors;
   const dispatch = useDispatch();
 

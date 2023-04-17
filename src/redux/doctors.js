@@ -41,7 +41,7 @@ const doctorsReducer = (state = initialState, action) => {
         fee: doctor.fee,
         experience: doctor.experience,
       }));
-      return allDoctors;
+      return { ...state, doctors: [...state.doctors, ...allDoctors] };
     }
     case `${ADD}/fulfilled`: {
       const newDoctor = {
@@ -52,7 +52,7 @@ const doctorsReducer = (state = initialState, action) => {
         fee: action.payload.fee,
         experience: action.payload.experience,
       };
-      return [...state, newDoctor];
+      return { ...state, doctors: [...state.doctors, newDoctor] };
     }
     default: {
       return state;
