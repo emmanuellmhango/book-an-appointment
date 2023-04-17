@@ -1,19 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Reservation = ({ reservation, doctorsList }) => {
-  const doctor = doctorsList.find((doctor) => doctor.id === reservation.doctor_id);
-
-  return (
-    <li>
-      <h2>{doctor.name}</h2>
-      <p>{reservation.date}</p>
-      <p>{reservation.city}</p>
-      <button type="button">Cancel Reservation</button>
-      <button type="button">Edit Reservation</button>
-    </li>
-  );
-};
+const Reservation = ({ reservation }) => (
+  <li>
+    <h2>{reservation.doctor_id}</h2>
+    <p>{reservation.date}</p>
+    <p>{reservation.city}</p>
+    <button type="button">Cancel Reservation</button>
+    <button type="button">Edit Reservation</button>
+  </li>
+);
 
 Reservation.propTypes = {
   reservation: PropTypes.shape({
@@ -23,15 +19,6 @@ Reservation.propTypes = {
     date: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
   }).isRequired,
-  doctorsList: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    specialization: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-    fee: PropTypes.number.isRequired,
-    photo: PropTypes.string.isRequired,
-    experience: PropTypes.number.isRequired,
-  })).isRequired,
 };
 
 export default Reservation;

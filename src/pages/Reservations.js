@@ -1,51 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import Reservation from '../components/Reservation';
 
 const Reservations = () => {
-  const reservationsList = [
-    {
-      id: 1,
-      user_id: 1,
-      doctor_id: 1,
-      date: '2023-04-10',
-      city: 'Miami',
-    },
-    {
-      id: 2,
-      user_id: 1,
-      doctor_id: 2,
-      date: '2023-04-11',
-      city: 'New York',
-    },
-    {
-      id: 3,
-      user_id: 1,
-      doctor_id: 2,
-      date: '2023-04-12',
-      city: 'New York',
-    },
-  ];
-
-  const doctorsList = [
-    {
-      id: 1,
-      name: 'Juan Muñoz',
-      specialization: 'Pediatrics',
-      city: 'Miami',
-      fee: 200,
-      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
-      experience: 20,
-    },
-    {
-      id: 2,
-      name: 'Pedro Fuentes',
-      specialization: 'Pediatrics',
-      city: 'New York',
-      fee: 200,
-      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
-      experience: 10,
-    },
-  ];
+  const reservationsList = useSelector((state) => state.reservations.reservations);
 
   return (
     <section>
@@ -55,7 +14,6 @@ const Reservations = () => {
           <Reservation
             key={reservation.id}
             reservation={reservation}
-            doctorsList={doctorsList}
           />
         ))}
       </ul>
