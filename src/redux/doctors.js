@@ -4,8 +4,32 @@ import axios from 'axios';
 const GET = 'book-an-appointment/doctorsReducer/GET';
 const ADD = 'book-an-appointment/doctorsReducer/ADD';
 
+const initialState = {
+  doctors: [
+    {
+      id: 1,
+      name: 'Juan Muñoz',
+      specialization: 'Pediatrics',
+      city: 'Miami',
+      fee: 200,
+      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
+      experience: 20,
+    },
+    {
+      id: 2,
+      name: 'Pedro Fuentes',
+      specialization: 'Pediatrics',
+      city: 'New York',
+      fee: 200,
+      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
+      experience: 10,
+    },
+  ],
+  loading: false,
+  error: null,
+};
 // Reducer
-const doctorsReducer = (state = [], action) => {
+const doctorsReducer = (state = initialState, action) => {
   switch (action.type) {
     case `${GET}/fulfilled`: {
       const allDoctors = action.payload.data.map((doctor) => ({
