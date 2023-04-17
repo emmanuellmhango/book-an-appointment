@@ -24,6 +24,13 @@ const initialState = {
       date: '2023-04-12',
       city: 'New York',
     },
+    {
+      id: 4,
+      user_id: 1,
+      doctor_id: 2,
+      date: '2023-04-14',
+      city: 'New York',
+    },
   ],
   loading: false,
   error: null,
@@ -37,6 +44,11 @@ export const fetchReservations = createAsyncThunk(
   },
 );
 
+export const deleteReservation = (reservationId) => ({
+  type: 'DELETE_RESERVATION',
+  payload: reservationId,
+});
+
 const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case fetchReservations.pending.type:
@@ -48,13 +60,20 @@ const reservationsReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        reservations: action.payload,
+        reservations: [...state.reservations, ...action.payload],
       };
     case fetchReservations.rejected.type:
       return {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case 'DELETE_RESERVATION':
+      return {
+        ...state,
+        reservations: state.reservations.filter(
+          (reservation) => reservation.id !== action.payload,
+        ),
       };
     default:
       return state;
