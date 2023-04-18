@@ -3,33 +3,10 @@ import axios from 'axios';
 
 const GET = 'book-an-appointment/doctorsReducer/GET';
 const ADD = 'book-an-appointment/doctorsReducer/ADD';
+const DELETE = 'book-an-appointment/doctorsReducer/DELETE';
 
-const initialState = {
-  doctors: [
-    {
-      id: 1,
-      name: 'Juan Muñoz',
-      specialization: 'Pediatrics',
-      city: 'Miami',
-      fee: 200,
-      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
-      experience: 20,
-    },
-    {
-      id: 2,
-      name: 'Pedro Fuentes',
-      specialization: 'Pediatrics',
-      city: 'New York',
-      fee: 200,
-      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
-      experience: 10,
-    },
-  ],
-  loading: false,
-  error: null,
-};
 // Reducer
-const doctorsReducer = (state = initialState, action) => {
+const doctorsReducer = (state = [], action) => {
   switch (action.type) {
     case `${GET}/fulfilled`: {
       const allDoctors = action.payload.data.map((doctor) => ({
@@ -41,7 +18,7 @@ const doctorsReducer = (state = initialState, action) => {
         fee: doctor.fee,
         experience: doctor.experience,
       }));
-      return { ...state, doctors: [...state.doctors, ...allDoctors] };
+      return allDoctors;
     }
     case `${ADD}/fulfilled`: {
       const newDoctor = {
@@ -52,7 +29,12 @@ const doctorsReducer = (state = initialState, action) => {
         fee: action.payload.fee,
         experience: action.payload.experience,
       };
-      return { ...state, doctors: [...state.doctors, newDoctor] };
+      return [...state, newDoctor];
+    }
+    case `${DELETE}/fulfilled`: {
+      const { id } = action.payload;
+      const updatedDoctors = state.filter((doctor) => doctor.id !== id);
+      return updatedDoctors;
     }
     default: {
       return state;
@@ -71,6 +53,11 @@ export const addDoctor = (payload) => ({
   payload,
 });
 
+export const removeDoctor = (payload) => ({
+  type: DELETE,
+  payload,
+});
+
 // API
 export const fetchDoctors = createAsyncThunk(GET, async () => {
   const response = await fetch('http://localhost:3000/api/v1/doctors');
@@ -82,6 +69,11 @@ export const createDoctor = createAsyncThunk(ADD, async (doctorData) => {
   const response = await axios.post('http://localhost:3000/api/v1/doctors', { doctor: doctorData });
   // console.log(response.data);
   return response.data;
+});
+
+export const deleteDoctor = createAsyncThunk(DELETE, async (id) => {
+  await axios.delete(`http://localhost:3000/api/v1/doctors/${id}`);
+  return { id }; // Return the deleted doctor's id for updating the state
 });
 
 export default doctorsReducer;

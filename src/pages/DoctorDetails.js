@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 const DoctorDetails = () => {
   const { id } = useParams();
-  const doctors = useSelector((state) => state.doctors.doctors);
+  const doctors = useSelector((state) => state.doctors);
   const doctor = doctors.find((doc) => doc.id === parseInt(id, 10));
 
   return (
