@@ -1,5 +1,5 @@
 .sign-up-form {
-  padding-top: 9rem;
+  padding-top: 4rem;
   background-image: url(../assets/doc-back.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -57,4 +57,17 @@
   flex-direction: column;
   text-align: center;
   width: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+  .sign-up-title {
+    font-size: 20px;
+    margin: 0 2rem;
+  }
+
+  .sign-up-form {
+    padding-top: 5rem;
+    background-image: none;
+    background-color: #96bf00;
+  }
 }

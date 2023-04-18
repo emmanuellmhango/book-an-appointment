@@ -80,6 +80,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-bottom: 20px;
 }
 
 .sidebar-item {
@@ -101,4 +102,33 @@ body {
   cursor: pointer;
   color: #fff;
   font-weight: bold;
+}
+
+.sign-out-side {
+  padding-left: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    position: relative;
+    width: 100vw;
+    height: 27rem;
+  }
+
+  .sidebar-list {
+    text-align: center;
+  }
+
+  .logo {
+    justify-self: center;
+  }
+
+  .sign-out-side {
+    display: none;
+  }
+
+  .sidebar-header-icon {
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -51,3 +51,15 @@
   color: white;
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 600px) {
+  .add-doctor-title {
+    font-size: 20px;
+  }
+
+  .add-doctor-form {
+    padding-top: 1rem;
+    background-image: none;
+    background-color: #96bf00;
+  }
+}
