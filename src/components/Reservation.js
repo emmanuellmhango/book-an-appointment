@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Reservation = ({ reservation }) => (
-  <li>
-    <h2>{reservation.doctor_id}</h2>
-    <p>{reservation.date}</p>
-    <p>{reservation.city}</p>
-    <button type="button">Cancel Reservation</button>
-    <button type="button">Edit Reservation</button>
-  </li>
-);
+const Reservation = ({ reservation, doctor, onDelete }) => {
+  const handleDelete = () => {
+    onDelete(reservation.id);
+  };
+
+  return (
+    <li>
+      <h2>{doctor.name}</h2>
+      <p>{reservation.date}</p>
+      <p>{reservation.city}</p>
+      <button type="button" onClick={handleDelete}>Cancel Reservation</button>
+    </li>
+  );
+};
 
 Reservation.propTypes = {
   reservation: PropTypes.shape({
@@ -19,6 +24,11 @@ Reservation.propTypes = {
     date: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
   }).isRequired,
+  doctor: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default Reservation;
