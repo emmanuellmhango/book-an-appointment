@@ -7,6 +7,10 @@ const DoctorDetails = () => {
   const doctors = useSelector((state) => state.doctors.doctors);
   const doctor = doctors.find((doc) => doc.id === parseInt(id, 10));
 
+  const handleReserveClick = () => {
+    window.location.href = `/doctors/${id}/reserve`;
+  };
+
   return (
     <section>
       <img src={doctor.photo} alt="doctor" />
@@ -32,7 +36,7 @@ const DoctorDetails = () => {
         {' '}
         {doctor.fee}
       </p>
-      <button type="button"> Reserve</button>
+      <button type="button" onClick={handleReserveClick}> Reserve</button>
     </section>
   );
 };

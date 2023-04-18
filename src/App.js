@@ -9,6 +9,7 @@ import AddDoctor from './components/AddDoctor';
 // import Footer from './components/Footer';
 import Reservations from './pages/Reservations';
 import DoctorDetails from './pages/DoctorDetails';
+import AddReservation from './pages/AddReservation';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Body />} />
         <Route path="/main" element={<Main />} />
         <Route path="/doctors/:id" element={<DoctorDetails />} />
+        <Route path="/doctors/:id/reserve" element={<AddReservation />} />
         <Route path="/add_doctor" element={<AddDoctor />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
