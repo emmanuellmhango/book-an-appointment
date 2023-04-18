@@ -17,8 +17,6 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: blue;
-  font-style: italic;
 }
 
 .pass-field {

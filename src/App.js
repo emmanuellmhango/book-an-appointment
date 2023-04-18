@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+// import Header from './components/Header';
 import Body from './components/Body';
 import Main from './components/Main';
 import SignIn from './components/SignIn';
@@ -12,7 +12,7 @@ import Reservations from './pages/Reservations';
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="/main" element={<Main />} />
