@@ -23,6 +23,7 @@ const SideBar = () => (
         <Link to="/reservations" className="link">MY RESERVATIONS</Link>
       </li>
     </ul>
+    <Link to="/signin" className="link sign-out-side">Sign Out</Link>
   </nav>
 );
 
