@@ -9,12 +9,14 @@ const AddReservation = () => {
   const doctor = doctors.find((doc) => doc.id === parseInt(id, 10));
   const dispatch = useDispatch();
   const [reservationData, setReservationData] = useState({
-    doctorId: doctor.id,
+    doctor_id: doctor.id,
     date: '',
     city: doctor.city,
   });
 
   const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    console.log(name, value);
     setReservationData({
       ...reservationData,
       [event.target.name]: event.target.value,
@@ -23,6 +25,7 @@ const AddReservation = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    console.log(reservationData);
     dispatch(addReservation(reservationData));
   };
 

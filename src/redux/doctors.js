@@ -5,26 +5,7 @@ const GET = 'book-an-appointment/doctorsReducer/GET';
 const ADD = 'book-an-appointment/doctorsReducer/ADD';
 
 const initialState = {
-  doctors: [
-    {
-      id: 1,
-      name: 'Juan Muñoz',
-      specialization: 'Pediatrics',
-      city: 'Miami',
-      fee: 200,
-      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
-      experience: 20,
-    },
-    {
-      id: 2,
-      name: 'Pedro Fuentes',
-      specialization: 'Pediatrics',
-      city: 'New York',
-      fee: 200,
-      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
-      experience: 10,
-    },
-  ],
+  doctors: [],
   loading: false,
   error: null,
 };
@@ -41,7 +22,7 @@ const doctorsReducer = (state = initialState, action) => {
         fee: doctor.fee,
         experience: doctor.experience,
       }));
-      return { ...state, doctors: [...state.doctors, ...allDoctors] };
+      return { ...state, doctors: allDoctors };
     }
     case `${ADD}/fulfilled`: {
       const newDoctor = {
