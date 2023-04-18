@@ -49,6 +49,11 @@ export const deleteReservation = (reservationId) => ({
   payload: reservationId,
 });
 
+export const addReservation = (reservation) => ({
+  type: 'ADD_RESERVATION',
+  payload: reservation,
+});
+
 const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case fetchReservations.pending.type:
@@ -74,6 +79,11 @@ const reservationsReducer = (state = initialState, action) => {
         reservations: state.reservations.filter(
           (reservation) => reservation.id !== action.payload,
         ),
+      };
+    case 'ADD_RESERVATION':
+      return {
+        ...state,
+        reservations: [...state.reservations, action.payload],
       };
     default:
       return state;
