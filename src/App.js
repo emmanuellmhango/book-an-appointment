@@ -8,6 +8,7 @@ import SignUp from './components/SignUp';
 import AddDoctor from './components/AddDoctor';
 // import Footer from './components/Footer';
 import Reservations from './pages/Reservations';
+import DoctorDetails from './pages/DoctorDetails';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/doctors/:id" element={<DoctorDetails />} />
         <Route path="/add_doctor" element={<AddDoctor />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />

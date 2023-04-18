@@ -1,3 +1,6 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import ReservationService from '../services/ReservationService';
+
 const initialState = {
   reservations: [
     {
@@ -21,50 +24,56 @@ const initialState = {
       date: '2023-04-12',
       city: 'New York',
     },
-  ],
-
-  doctors: [
     {
-      id: 1,
-      name: 'Juan Muñoz',
-      specialization: 'Pediatrics',
-      city: 'Miami',
-      fee: 200,
-      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
-      experience: 20,
-    },
-    {
-      id: 2,
-      name: 'Pedro Fuentes',
-      specialization: 'Pediatrics',
+      id: 4,
+      user_id: 1,
+      doctor_id: 2,
+      date: '2023-04-14',
       city: 'New York',
-      fee: 200,
-      photo: 'https://st2.depositphotos.com/1743476/5738/i/950/depositphotos_57385697-stock-photo-confident-mature-doctor.jpg',
-      experience: 10,
     },
   ],
   loading: false,
   error: null,
 };
 
+export const fetchReservations = createAsyncThunk(
+  'reservations/fetchReservations',
+  async () => {
+    const response = await ReservationService.getAll();
+    return response;
+  },
+);
+
+export const deleteReservation = (reservationId) => ({
+  type: 'DELETE_RESERVATION',
+  payload: reservationId,
+});
+
 const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_RESERVATIONS':
+    case fetchReservations.pending.type:
       return {
         ...state,
         loading: true,
       };
-    case 'FETCH_RESERVATIONS_SUCCESS':
+    case fetchReservations.fulfilled.type:
       return {
         ...state,
         loading: false,
-        reservations: action.payload,
+        reservations: [...state.reservations, ...action.payload],
       };
-    case 'FETCH_RESERVATIONS_ERROR':
+    case fetchReservations.rejected.type:
       return {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case 'DELETE_RESERVATION':
+      return {
+        ...state,
+        reservations: state.reservations.filter(
+          (reservation) => reservation.id !== action.payload,
+        ),
       };
     default:
       return state;
