@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../styles/main.css';
 import { fetchDoctors } from '../redux/doctors';
 
 const Main = () => {
-  const doctors = useSelector((state) => state.doctors);
+  const doctors = useSelector((state) => state.doctors.doctors);
   const { length } = doctors;
   const dispatch = useDispatch();
 
@@ -21,7 +22,9 @@ const Main = () => {
       <div className="doctors-container">
         {doctors.map((doctor) => (
           <div key={doctor.id} className="doctor-card">
-            <img className="doctor-image" src={doctor.photo} alt="doctor" />
+            <Link to={`/doctors/${doctor.id}`}>
+              <img className="doctor-image" src={doctor.photo} alt="doctor" />
+            </Link>
             <h2>
               Dr.
               {doctor.name}
