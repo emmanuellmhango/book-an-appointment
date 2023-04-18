@@ -4,9 +4,9 @@ import Reservation from '../components/Reservation';
 import { deleteReservation } from '../redux/reservations';
 
 const Reservations = () => {
-  const reservationsList = useSelector((state) => state.reservations.reservations);
-  const doctors = useSelector((state) => state.doctors.doctors);
   const dispatch = useDispatch();
+  const reservationsList = useSelector((state) => state.reservations.reservations);
+  console.log(reservationsList);
 
   const handleDeleteReservation = (reservationId) => {
     dispatch(deleteReservation(reservationId));
@@ -20,7 +20,7 @@ const Reservations = () => {
           <Reservation
             key={reservation.id}
             reservation={reservation}
-            doctor={doctors.find((doctor) => doctor.id === reservation.doctor_id)}
+            doctorId={reservation.doctor_id}
             onDelete={handleDeleteReservation}
           />
         ))}
