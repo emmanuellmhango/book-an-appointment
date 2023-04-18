@@ -32,7 +32,7 @@ const DoctorDetails = () => {
         {' '}
         {doctor.fee}
       </p>
-      <button type="button">Reserve</button>
+      <button type="button"> Reserve</button>
     </section>
   );
 };
