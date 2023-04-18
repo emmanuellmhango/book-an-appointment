@@ -1,15 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const DoctorDetails = () => {
   const { id } = useParams();
   const doctors = useSelector((state) => state.doctors.doctors);
   const doctor = doctors.find((doc) => doc.id === parseInt(id, 10));
-
-  const handleReserveClick = () => {
-    window.location.href = `/doctors/${id}/reserve`;
-  };
 
   return (
     <section>
@@ -36,7 +32,9 @@ const DoctorDetails = () => {
         {' '}
         {doctor.fee}
       </p>
-      <button type="button" onClick={handleReserveClick}> Reserve</button>
+      <Link to={`/doctors/${doctor.id}/reserve`}>
+        <button type="button"> Reserve</button>
+      </Link>
     </section>
   );
 };
