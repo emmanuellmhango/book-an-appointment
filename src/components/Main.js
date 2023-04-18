@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import '../styles/main.css';
 import { fetchDoctors } from '../redux/doctors';
 import SideBar from './SideBar';
