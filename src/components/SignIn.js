@@ -17,7 +17,6 @@ const SignInComponent = () => {
           password,
         },
       });
-      // Handle successful sign-in
       console.log('Sign in successful:', response.data);
       // Extract authorization token from response and store it locally
       const token = response.headers.authorization;
@@ -27,10 +26,8 @@ const SignInComponent = () => {
       setMessage('Sign in successful' || '');
       // Do something with the response or redirect to a new page
     } catch (error) {
-      // Handle sign-in error
       console.error('Sign in failed:', error);
       setMessage('Sign in failed' || '');
-      // Do something with the error, such as showing an error message to the user
     }
   };
 
@@ -53,24 +50,17 @@ const SignInComponent = () => {
       setMessage('Sign out failed' || '');
     }
   };
-
   return (
     <div className="sign-in-form">
-
-      <h1> Welcome, please sign in to continue</h1>
-      {/* Render message */}
-
-      <div className="btn-log">
-        <p>{message}</p>
-        {/* Sign-in inputs */}
-        <input className="email" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input className="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <h1 className="sign-in-title"> Welcome, please sign in to continue</h1>
+      <p>{message}</p>
+      <div className="sign-in-inputs">
+        <input className="email-input" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className="password-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       <div className="btn">
-        <button className="button" type="button" onClick={handleSignIn}>Sign In</button>
-
-        {/* Sign-out button */}
-        <button type="button" onClick={handleSignOut}>Sign Out</button>
+        <button className="sign-in-button" type="button" onClick={handleSignIn}>Sign In</button>
+        <button className="sign-out-button" type="button" onClick={handleSignOut}>Sign Out</button>
       </div>
     </div>
   );
