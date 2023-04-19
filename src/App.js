@@ -1,6 +1,6 @@
 // import React from 'react';
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import Body from './components/Body';
 import Main from './components/Main';
@@ -13,23 +13,19 @@ import DeleteDoctor from './components/DeleteDoctor';
 import AddReservation from './pages/AddReservation';
 import { fetchDoctors } from './redux/doctors';
 import { fetchReservations } from './redux/reservations';
-import Header from './components/Header';
+import Redirect from './pages/Redirect';
 
 function App() {
   const dispatch = useDispatch();
-  const doctors = useSelector((state) => state.doctors);
-  const { length } = doctors;
+  // const doctors = useSelector((state) => state.doctors);
 
   useEffect(() => {
-    if (length === 0) {
-      dispatch(fetchDoctors());
-      dispatch(fetchReservations());
-    }
-  }, [dispatch, length]);
+    dispatch(fetchDoctors());
+    dispatch(fetchReservations());
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <Header />
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="/main" element={<Main />} />
@@ -40,6 +36,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/doctors/delete" element={<DeleteDoctor />} />
+        <Route path="/reserve" element={<Redirect />} />
       </Routes>
     </div>
   );

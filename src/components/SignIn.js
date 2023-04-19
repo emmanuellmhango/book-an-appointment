@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/signin.css';
 
@@ -7,6 +8,7 @@ const SignInComponent = () => {
   const [password, setPassword] = useState('');
   const [authToken, setAuthToken] = useState(null); // State to store authorization token
   const [message, setMessage] = useState(''); // State to store the latest message
+  const navigate = useNavigate();
 
   // Function to sign in
   const handleSignIn = async () => {
@@ -23,14 +25,14 @@ const SignInComponent = () => {
         },
       });
       console.log('Sign in successful:', response.data);
-      console.log(response.data.status.data.id);
       // Extract authorization token from response and store it locally
       const token = response.headers.authorization;
-      console.log(token);
       setAuthToken(token);
       sessionStorage.setItem('userId', response.data.status.data.id);
       // Update message state with the latest message from response
       setMessage('Sign in successful' || '');
+      // Navigate to the home page after successful sign-in
+      navigate('/main');
       // Do something with the response or redirect to a new page
     } catch (error) {
       console.error('Sign in failed:', error);
