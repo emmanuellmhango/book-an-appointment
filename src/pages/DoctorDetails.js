@@ -1,23 +1,12 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { fetchDoctors } from '../redux/doctors';
 import SideBar from '../components/SideBar';
 import '../styles/doctorDetails.css';
 
 const DoctorDetails = () => {
   const doctors = useSelector((state) => state.doctors);
-  const { length } = doctors;
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (length === 0) {
-      dispatch(fetchDoctors());
-    }
-  }, [dispatch, length]);
   const { doctorId } = useParams();
   const doctor = doctors.find((doctor) => doctor.id === parseInt(doctorId, 10));
-  console.log(doctor);
   if (!doctor) {
     return <p className="doctor-details-not-found">Doctor not found</p>;
   }
@@ -51,7 +40,7 @@ const DoctorDetails = () => {
             years
           </p>
           <Link to={`/doctors/${doctor.id}/reserve`}>
-            <button type="button">Reserve</button>
+            <button type="button"> Reserve</button>
           </Link>
         </div>
       </div>

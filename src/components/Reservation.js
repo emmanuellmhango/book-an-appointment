@@ -1,30 +1,16 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchDoctors } from '../redux/doctors';
+import '../styles/reservations.css';
 
-const Reservation = ({ reservation, doctorId, onDelete }) => {
+const Reservation = ({ reservation, doctor, onDelete }) => {
   const handleDelete = () => {
     onDelete(reservation.id);
   };
-
-  const doctors = useSelector((state) => state.doctors);
-  const { length } = doctors;
-  const dispatch = useDispatch();
-  // console.log(doctors);
-  const doctor = doctors.id === doctorId;
-
-  useEffect(() => {
-    if (length === 0) {
-      dispatch(fetchDoctors());
-    }
-  }, [dispatch, length]);
-
   return (
     <li>
       <h2>{doctor.name}</h2>
-      <p>{reservation.date}</p>
-      <p>{reservation.city}</p>
+      <p className="reservation-date">{reservation.date}</p>
+      <p className="reservation-city">{reservation.city}</p>
       <button type="button" onClick={handleDelete}>Cancel Reservation</button>
     </li>
   );
@@ -38,7 +24,10 @@ Reservation.propTypes = {
     date: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
   }).isRequired,
-  doctorId: PropTypes.number.isRequired,
+  doctor: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
   onDelete: PropTypes.func.isRequired,
 };
 

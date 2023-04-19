@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchDoctors, deleteDoctor } from '../redux/doctors';
+import { deleteDoctor } from '../redux/doctors';
 import left from '../assets/arrow-left.png';
 import right from '../assets/arrow-right.png';
 import SideBar from './SideBar';
@@ -11,11 +11,6 @@ const DeleteDoctor = () => {
   const doctors = useSelector((state) => state.doctors);
   const dispatch = useDispatch();
   const doctorsContainerRef = useRef(null);
-
-  // Fetch doctors on component mount
-  useEffect(() => {
-    dispatch(fetchDoctors());
-  }, [dispatch]);
 
   const handleDelete = (id) => {
     // Handle "Delete" button click

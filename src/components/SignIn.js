@@ -16,12 +16,19 @@ const SignInComponent = () => {
           email,
           password,
         },
+      }, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
       console.log('Sign in successful:', response.data);
+      console.log(response.data.status.data.id);
       // Extract authorization token from response and store it locally
       const token = response.headers.authorization;
       console.log(token);
       setAuthToken(token);
+      sessionStorage.setItem('userId', response.data.status.data.id);
       // Update message state with the latest message from response
       setMessage('Sign in successful' || '');
       // Do something with the response or redirect to a new page
@@ -41,6 +48,7 @@ const SignInComponent = () => {
       });
       // Handle successful sign-out
       console.log('Sign out successful:', response.data);
+      sessionStorage.clear();
       // Update message state with the latest message from response
       setMessage(response.data.message || '');
     } catch (error) {
