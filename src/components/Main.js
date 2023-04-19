@@ -1,15 +1,22 @@
-import React, { useRef } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/main.css';
 import SideBar from './SideBar';
 import dots from '../assets/dots.png';
 import left from '../assets/arrow-left.png';
 import right from '../assets/arrow-right.png';
+import { fetchDoctors } from '../redux/doctors';
 
 const Main = () => {
   const doctors = useSelector((state) => state.doctors);
   const doctorsContainerRef = useRef(null);
+  const dispatch = useDispatch();
+  // const { length } = doctors;
+
+  useEffect(() => {
+    dispatch(fetchDoctors());
+  }, [dispatch]);
 
   const scrollLeft = () => {
     if (doctorsContainerRef.current) {
@@ -37,7 +44,7 @@ const Main = () => {
         ) : (
           <div className="doctors-container" ref={doctorsContainerRef}>
             {doctors.map((doctor) => (
-              <div key={doctor.id} className="doctor-card">
+              <div key={`${doctor.id}_${doctor.name}`} className="doctor-card">
                 <img className="doctor-image" src={doctor.photo} alt="doctor" />
                 <h2 className="doctor-name">
                   Dr.
