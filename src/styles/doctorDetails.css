@@ -1,0 +1,21 @@
+.doctor-details-container {
+  padding-top: 60px;
+  padding-left: 20rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.doctor-details-image {
+  width: 300px;
+  height: 300px;
+  border: 3px solid lightblue;
+  margin: 20px;
+}
+
+.doctor-details-specialization,
+.doctor-details-name,
+.doctor-details-city,
+.doctor-details-fee,
+.doctor-details-experience {
+  color: black;
+}

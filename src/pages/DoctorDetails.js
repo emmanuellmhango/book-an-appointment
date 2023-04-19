@@ -1,39 +1,61 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams, Link } from 'react-router-dom';
+import { fetchDoctors } from '../redux/doctors';
+import SideBar from '../components/SideBar';
+import '../styles/doctorDetails.css';
 
 const DoctorDetails = () => {
-  const { id } = useParams();
-  const doctors = useSelector((state) => state.doctors.doctors);
-  const doctor = doctors.find((doc) => doc.id === parseInt(id, 10));
+  const doctors = useSelector((state) => state.doctors);
+  const { length } = doctors;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (length === 0) {
+      dispatch(fetchDoctors());
+    }
+  }, [dispatch, length]);
+  const { doctorId } = useParams();
+  const doctor = doctors.find((doctor) => doctor.id === parseInt(doctorId, 10));
+  console.log(doctor);
+  if (!doctor) {
+    return <p className="doctor-details-not-found">Doctor not found</p>;
+  }
 
   return (
-    <section>
-      <img src={doctor.photo} alt="doctor" />
-      <h1>
-        Dr.
-        {doctor.name}
-      </h1>
-      <p>
-        {doctor.specialization}
-      </p>
-      <p>
-        Based in
-        {' '}
-        {doctor.city}
-      </p>
-      <p>
-        Experience:
-        {' '}
-        {doctor.experience}
-      </p>
-      <p>
-        Fee:
-        {' '}
-        {doctor.fee}
-      </p>
-      <button type="button"> Reserve</button>
-    </section>
+    <div className="doctor-details">
+      <SideBar />
+      <div className="doctor-details-container">
+        <img className="doctor-details-image" src={doctor.photo} alt="doctor" />
+        <div className="doctor-data">
+          <h2 className="doctor-details-name">
+            Dr.
+            {' '}
+            {doctor.name}
+          </h2>
+          <p className="doctor-details-specialization">
+            Specialization:
+            {doctor.specialization}
+          </p>
+          <p className="doctor-details-city">
+            Based in:
+            {doctor.city}
+          </p>
+          <p className="doctor-details-fee">
+            Charging fee: $
+            {doctor.fee}
+          </p>
+          <p className="doctor-details-experience">
+            Experience:
+            {doctor.experience}
+            years
+          </p>
+          <Link to={`/doctors/${doctor.id}/reserve`}>
+            <button type="button">Reserve</button>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 

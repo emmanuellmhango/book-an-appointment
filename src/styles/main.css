@@ -77,13 +77,38 @@
 
 .arrow-left,
 .arrow-right {
-  position: relative;
-  top: -120px;
+  /* position: relative;
+  top: -120px; */
   border: none;
   background: none;
   outline: none;
   box-shadow: none;
   width: 60px;
+}
+
+.no-doctors-message {
+  text-align: center;
+  text-decoration: underline;
+  color: #97bf0f;
+}
+
+.delete-button {
+  margin: 20px;
+  border: none;
+  background-color: brown;
+  height: 35px;
+  width: 85px;
+  border-radius: 25px;
+  color: white;
+}
+
+.doctor-details {
+  background-color: lightblue;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  width: 60px;
+  height: 20px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -122,10 +147,10 @@
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
   .main {
     padding-top: 60px;
-    padding-left: 12rem;
+    padding-left: 0;
   }
 
   .arrow-left,
