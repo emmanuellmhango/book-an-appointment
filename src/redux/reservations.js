@@ -2,36 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import ReservationService from '../services/ReservationService';
 
 const initialState = {
-  reservations: [
-    {
-      id: 1,
-      user_id: 1,
-      doctor_id: 1,
-      date: '2023-04-10',
-      city: 'Miami',
-    },
-    {
-      id: 2,
-      user_id: 1,
-      doctor_id: 2,
-      date: '2023-04-11',
-      city: 'New York',
-    },
-    {
-      id: 3,
-      user_id: 1,
-      doctor_id: 2,
-      date: '2023-04-12',
-      city: 'New York',
-    },
-    {
-      id: 4,
-      user_id: 1,
-      doctor_id: 2,
-      date: '2023-04-14',
-      city: 'New York',
-    },
-  ],
+  reservations: [],
   loading: false,
   error: null,
 };
@@ -40,6 +11,16 @@ export const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
   async () => {
     const response = await ReservationService.getAll();
+    const { data } = response;
+    return data.reservations;
+  },
+);
+
+export const addReservation = createAsyncThunk(
+  'reservations/addReservation',
+  async (reservationData) => {
+    console.log('getting data...', reservationData);
+    const response = await ReservationService.create(reservationData);
     return response;
   },
 );
@@ -60,13 +41,13 @@ const reservationsReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        reservations: [...state.reservations, ...action.payload],
+        reservations: [...action.payload],
       };
     case fetchReservations.rejected.type:
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: action.error,
       };
     case 'DELETE_RESERVATION':
       return {
@@ -75,9 +56,19 @@ const reservationsReducer = (state = initialState, action) => {
           (reservation) => reservation.id !== action.payload,
         ),
       };
+    case addReservation.fulfilled.type:
+      console.log('action.payload', action.payload);
+      return {
+        ...state,
+        reservations: [...state.reservations, action.payload],
+      };
     default:
       return state;
   }
 };
+
+export const getLoadingState = (state) => state.reservations.loading;
+export const getReservations = (state) => state.reservations.reservations;
+export const getError = (state) => state.reservations.error;
 
 export default reservationsReducer;

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchDoctors } from '../redux/doctors';
 import SideBar from '../components/SideBar';
 import '../styles/doctorDetails.css';
@@ -50,6 +50,9 @@ const DoctorDetails = () => {
             {doctor.experience}
             years
           </p>
+          <Link to={`/doctors/${doctor.id}/reserve`}>
+            <button type="button">Reserve</button>
+          </Link>
         </div>
       </div>
     </div>

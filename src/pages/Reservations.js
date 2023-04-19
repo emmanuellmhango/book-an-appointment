@@ -1,16 +1,25 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Reservation from '../components/Reservation';
-import { deleteReservation } from '../redux/reservations';
+import { deleteReservation, getReservations, fetchReservations } from '../redux/reservations';
 
 const Reservations = () => {
   const dispatch = useDispatch();
-  const reservationsList = useSelector((state) => state.reservations.reservations);
+  const reservationsList = useSelector(getReservations);
   console.log(reservationsList);
 
   const handleDeleteReservation = (reservationId) => {
     dispatch(deleteReservation(reservationId));
   };
+
+  if (reservationsList.length === 0) {
+    return (
+      <section>
+        <h1>My Reservations</h1>
+        <p>You have no reservations yet. Go to the home page to make one.</p>
+      </section>
+    );
+  }
 
   return (
     <section>

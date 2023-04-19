@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/main.css';
 import { fetchDoctors } from '../redux/doctors';
+import { fetchReservations } from '../redux/reservations';
 import SideBar from './SideBar';
 import dots from '../assets/dots.png';
 import left from '../assets/arrow-left.png';
@@ -10,15 +11,24 @@ import right from '../assets/arrow-right.png';
 
 const Main = () => {
   const doctors = useSelector((state) => state.doctors);
-  const { length } = doctors;
+  // const { length } = doctors;
   const dispatch = useDispatch();
   const doctorsContainerRef = useRef(null);
 
+  // useEffect(() => {
+  //   if (length === 0) {
+  //     dispatch(fetchDoctors());
+  //   }
+  // }, [dispatch, length]);
+
+  const retrieveData = useCallback(async () => {
+    await dispatch(fetchReservations());
+    await dispatch(fetchDoctors());
+  }, [dispatch]);
+
   useEffect(() => {
-    if (length === 0) {
-      dispatch(fetchDoctors());
-    }
-  }, [dispatch, length]);
+    retrieveData();
+  }, [retrieveData]);
 
   const scrollLeft = () => {
     if (doctorsContainerRef.current) {
