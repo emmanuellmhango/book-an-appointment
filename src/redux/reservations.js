@@ -19,7 +19,6 @@ export const fetchReservations = createAsyncThunk(
 export const addReservation = createAsyncThunk(
   'reservations/addReservation',
   async (reservationData) => {
-    console.log('getting data...', reservationData);
     const response = await ReservationService.create(reservationData);
     return response;
   },
@@ -29,6 +28,14 @@ export const deleteReservation = (reservationId) => ({
   type: 'DELETE_RESERVATION',
   payload: reservationId,
 });
+
+export const removeReservation = createAsyncThunk(
+  'reservations/removeReservation',
+  async (reservationId) => {
+    const response = await ReservationService.remove(reservationId);
+    return response;
+  },
+);
 
 const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -57,10 +64,17 @@ const reservationsReducer = (state = initialState, action) => {
         ),
       };
     case addReservation.fulfilled.type:
-      console.log('action.payload', action.payload);
       return {
         ...state,
         reservations: [...state.reservations, action.payload],
+      };
+
+    case removeReservation.fulfilled.type:
+      return {
+        ...state,
+        reservations: state.reservations.filter(
+          (reservation) => reservation.id !== action.payload,
+        ),
       };
     default:
       return state;
