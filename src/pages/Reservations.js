@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Reservation from '../components/Reservation';
-import { deleteReservation, getReservations } from '../redux/reservations';
+import { removeReservation, getReservations,deleteReservation } from '../redux/reservations';
 
 const Reservations = () => {
   const dispatch = useDispatch();
@@ -9,6 +9,7 @@ const Reservations = () => {
   const doctors = useSelector((state) => state.doctors.doctors);
 
   const handleDeleteReservation = (reservationId) => {
+    dispatch(removeReservation(reservationId));
     dispatch(deleteReservation(reservationId));
   };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SideBar from './SideBar';
 import '../styles/style.css';
 
@@ -33,6 +34,9 @@ const Header = () => {
           >
             <span className="humburger">&#9868;</span>
           </div>
+          <Link to="/reservations">
+            <p>My Reservations</p>
+          </Link>
           <div className="nav-search">
             <span className="nav-search-icon">
               &#128270;

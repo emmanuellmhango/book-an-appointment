@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/signin.css';
+import Cookies from 'js-cookie'
 
 const SignInComponent = () => {
   const [email, setEmail] = useState('');
@@ -16,12 +17,16 @@ const SignInComponent = () => {
           email,
           password,
         },
+      }, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
       // Handle successful sign-in
       console.log('Sign in successful:', response.data);
       // Extract authorization token from response and store it locally
       const token = response.headers.authorization;
-      console.log(token);
       setAuthToken(token);
       // Update message state with the latest message from response
       setMessage('Sign in successful' || '');

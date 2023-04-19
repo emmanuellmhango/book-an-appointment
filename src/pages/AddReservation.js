@@ -15,17 +15,14 @@ const AddReservation = () => {
   });
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name, value);
     setReservationData({
       ...reservationData,
       [event.target.name]: event.target.value,
     });
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(reservationData);
     dispatch(addReservation(reservationData));
   };
 
