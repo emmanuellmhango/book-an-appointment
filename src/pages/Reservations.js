@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Reservation from '../components/Reservation';
-import { deleteReservation, getReservations, fetchReservations } from '../redux/reservations';
+import { deleteReservation, getReservations } from '../redux/reservations';
 
 const Reservations = () => {
   const dispatch = useDispatch();
