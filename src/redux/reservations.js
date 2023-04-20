@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 import ReservationService from '../services/ReservationService';
+import { fetchDoctors } from './doctors';
 
 const initialState = {
   reservations: [],
@@ -20,6 +22,9 @@ export const addReservation = createAsyncThunk(
   'reservations/addReservation',
   async (reservationData) => {
     const response = await ReservationService.create(reservationData);
+    const dispatch = useDispatch();
+    await dispatch(fetchReservations());
+    await dispatch(fetchDoctors());
     return response;
   },
 );

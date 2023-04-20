@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { addReservation } from '../redux/reservations';
 import '../styles/addReservation.css';
 import SideBar from '../components/SideBar';
@@ -12,6 +12,7 @@ const AddReservation = () => {
   const userId = parseInt(userIdString, 10);
   const doctor = doctors.find((doc) => doc.id === parseInt(id, 10));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [reservationData, setReservationData] = useState({
     user_id: userId,
     doctor_id: doctor.id,
@@ -28,7 +29,13 @@ const AddReservation = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    dispatch(addReservation(reservationData));
+    const result = addReservation(reservationData);
+    dispatch(result);
+  };
+
+  const handleRedirect = () => {
+    navigate('/main');
+    window.location.reload();
   };
 
   return (
@@ -51,8 +58,8 @@ const AddReservation = () => {
           </label>
           <button type="submit">Reserve</button>
         </form>
-        <button type="button"><Link to="/reservations" className="link">Go to my reservations</Link></button>
       </section>
+      <button type="button" className="redirect-reservations" onClick={handleRedirect}>Redirect to Doctors</button>
     </div>
   );
 };

@@ -2,21 +2,21 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Reservation from '../components/Reservation';
 import {
-  removeReservation, getReservations, deleteReservation, fetchReservations,
-}
-  from '../redux/reservations';
+  removeReservation, deleteReservation, fetchReservations,
+} from '../redux/reservations';
 import '../styles/reservations.css';
-import { fetchDoctors } from '../redux/doctors';
 import SideBar from '../components/SideBar';
+import { fetchDoctors } from '../redux/doctors';
 
 const Reservations = () => {
   const dispatch = useDispatch();
-  const reservationsList = useSelector(getReservations);
+  const reservationsList = useSelector((state) => state.reservations.reservations);
   const doctors = useSelector((state) => state.doctors);
+  console.log('DOCS BEGINNIG', doctors);
 
   useEffect(() => {
     dispatch(fetchDoctors());
-    dispatch(fetchReservations());
+    dispatch(fetchReservations);
   }, [dispatch]);
 
   const handleDeleteReservation = (reservationId) => {
@@ -24,7 +24,7 @@ const Reservations = () => {
     dispatch(deleteReservation(reservationId));
   };
 
-  if (reservationsList.length === 0) {
+  if (reservationsList.length === 0 || doctors === []) {
     return (
       <section className="reservations-section">
         <h1>My Reservations</h1>
@@ -39,14 +39,21 @@ const Reservations = () => {
       <section className="reservations-section">
         <h1>My Reservations</h1>
         <ul>
-          {reservationsList.map((reservation) => (
-            <Reservation
-              key={reservation.id}
-              reservation={reservation}
-              doctor={doctors.find((doc) => doc.id === reservation.doctor_id)}
-              onDelete={handleDeleteReservation}
-            />
-          ))}
+          {reservationsList.map((reservation) => {
+            console.log(doctors);
+            const doctor = doctors.find((doc) => doc.id === reservation.doctor_id);
+            console.log(doctor);
+            return (
+              <Reservation
+                key={reservation.id}
+                reservation={reservation}
+                doctorId={reservation.doctor_id}
+                doctor={doctor}
+                onDelete={handleDeleteReservation}
+              />
+            );
+          })}
+          ;
         </ul>
       </section>
     </div>
