@@ -7,15 +7,16 @@ import dots from '../assets/dots.png';
 import left from '../assets/arrow-left.png';
 import right from '../assets/arrow-right.png';
 import { fetchDoctors } from '../redux/doctors';
+import { fetchReservations } from '../redux/reservations';
 
 const Main = () => {
   const doctors = useSelector((state) => state.doctors);
   const doctorsContainerRef = useRef(null);
   const dispatch = useDispatch();
-  // const { length } = doctors;
 
   useEffect(() => {
     dispatch(fetchDoctors());
+    dispatch(fetchReservations);
   }, [dispatch]);
 
   const scrollLeft = () => {

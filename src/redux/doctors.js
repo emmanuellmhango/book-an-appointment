@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
 const GET = 'book-an-appointment/doctorsReducer/GET';
 const ADD = 'book-an-appointment/doctorsReducer/ADD';
@@ -68,6 +69,8 @@ export const fetchDoctors = createAsyncThunk(GET, async () => {
 export const createDoctor = createAsyncThunk(ADD, async (doctorData) => {
   const response = await axios.post('http://localhost:3000/api/v1/doctors', { doctor: doctorData });
   // console.log(response.data);
+  const dispatch = useDispatch();
+  dispatch(fetchDoctors());
   return response.data;
 });
 
