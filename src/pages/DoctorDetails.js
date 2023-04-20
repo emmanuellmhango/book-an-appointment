@@ -41,7 +41,7 @@ const DoctorDetails = () => {
             years
           </p>
           <Link to={`/doctors/${doctor.id}/reserve`}>
-            <button type="button"> Reserve</button>
+            <button type="button" className="doctor-details-button"> Reserve</button>
           </Link>
         </div>
       </div>

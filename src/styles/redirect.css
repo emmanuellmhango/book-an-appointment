@@ -1,0 +1,33 @@
+.redirect-section {
+  padding-top: 60px;
+  padding-left: 190px;
+}
+
+.redirect-list-title {
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.redirect-list-subtitle {
+  text-align: center;
+  font-weight: 400;
+  color: #c4c4c4;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .redirect-section {
+    padding-top: 60px;
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .redirect-section {
+    padding-top: 60px;
+    padding-left: 0;
+  }
+}

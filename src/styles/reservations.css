@@ -1,8 +1,52 @@
-.reservation-date,
-.reservation-city {
-  color: black;
+.reservations-section {
+  padding-top: 60px;
+  padding-left: 190px;
 }
 
-.reservations-section {
-  padding-left: 15rem;
+.reservations-list-title {
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.reservations-list-subtitle {
+  text-align: center;
+  font-weight: 400;
+  color: #c4c4c4;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
+
+.reservations-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+@media only screen and (max-width: 600px) {
+  .reservations-section {
+    padding-top: 60px;
+    padding-left: 0;
+  }
+
+  .reservations-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .reservations-section {
+    padding-top: 60px;
+    padding-left: 0;
+  }
+
+  .reservations-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

@@ -19,3 +19,13 @@
 .doctor-details-experience {
   color: black;
 }
+
+.doctor-details-button {
+  background-color: lightblue;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  width: 90px;
+  height: 20px;
+  cursor: pointer;
+}
