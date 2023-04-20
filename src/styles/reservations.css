@@ -18,8 +18,35 @@
   padding-bottom: 20px;
 }
 
-.doctors-container {
+.reservations-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+@media only screen and (max-width: 600px) {
+  .reservations-section {
+    padding-top: 60px;
+    padding-left: 0;
+  }
+
+  .reservations-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .reservations-section {
+    padding-top: 60px;
+    padding-left: 0;
+  }
+
+  .reservations-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

@@ -21,16 +21,16 @@ const Reservation = ({ reservation, doctor, onDelete }) => {
   }
 
   return (
-    <li className="doctor-card">
-      <img className="doctor-image" src={doctor.photo} alt="doctor" />
-      <h2 className="doctor-name">
+    <li className="reservation-card">
+      <img className="reservation-image" src={doctor.photo} alt="doctor" />
+      <h2 className="reservation-name">
         Dr.
         {' '}
         {doctor.name}
       </h2>
       <img src={dots} alt="dots-bar" className="dots-bar" />
-      <p className="reservation-date">{reservation.date}</p>
-      <p className="doctor-city">
+      <p>{reservation.date}</p>
+      <p className="reservation-city">
         Based on:
         {reservation.city}
       </p>
@@ -47,7 +47,6 @@ Reservation.propTypes = {
     date: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
   }).isRequired,
-  // doctorId: PropTypes.number.isRequired,
   doctor: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
