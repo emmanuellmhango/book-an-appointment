@@ -1,8 +1,25 @@
-.reservation-date,
-.reservation-city {
-  color: black;
+.reservations-section {
+  padding-top: 60px;
+  padding-left: 190px;
 }
 
-.reservations-section {
-  padding-left: 15rem;
+.reservations-list-title {
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.reservations-list-subtitle {
+  text-align: center;
+  font-weight: 400;
+  color: #c4c4c4;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
+
+.doctors-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
