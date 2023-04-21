@@ -15,9 +15,8 @@ import { fetchDoctors } from './redux/doctors';
 import { fetchReservations } from './redux/reservations';
 import Redirect from './pages/Redirect';
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
-  // const doctors = useSelector((state) => state.doctors);
 
   useEffect(() => {
     dispatch(fetchDoctors());
@@ -40,6 +39,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;
