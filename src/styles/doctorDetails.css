@@ -1,0 +1,46 @@
+.doctor-details-container {
+  padding-top: 60px;
+  padding-left: 20rem;
+  display: grid;
+  width: 700px;
+  grid-template-columns: 400px 300px;
+}
+
+.doctor-data {
+  border: 2px solid lightgray;
+  border-radius: 10px;
+}
+
+.doctor-details-image {
+  width: 300px;
+  height: 300px;
+  border: 3px solid lightblue;
+  margin: 20px;
+}
+
+.doctor-details-specialization,
+.doctor-details-name,
+.doctor-details-city,
+.doctor-details-fee,
+.doctor-details-experience {
+  color: black;
+}
+
+.doctor-details-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.doctor-details-button {
+  background-color: lightblue;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  width: 90px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.gray-row {
+  background-color: #f4f4f4;
+}
