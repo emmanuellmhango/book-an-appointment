@@ -23,7 +23,7 @@
 
 **[Book_an_appointment]** is a front end app to book an appointment with a doctor. The user can vew the doctors and their specialities, reserve an appointment,  and add more doctors. It uses the back end which can be accessed [THROUGH THIS LINK](git@github.com:Nelitaa/book-an-appointment-back-end.git)
 
-[Link to the back-end](https://github.com/emmanuellmhango/book-an-appointment/pull/17)
+[Link to the back-end](https://github.com/Nelitaa/book-an-appointment-back-end)
 
 Front-end deployed website: http://162.243.166.190/
 Back-end deployed API: http://159.223.131.191:3000/
