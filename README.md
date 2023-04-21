@@ -23,6 +23,11 @@
 
 **[Book_an_appointment]** is a front end app to book an appointment with a doctor. The user can vew the doctors and their specialities, reserve an appointment,  and add more doctors. It uses the back end which can be accessed [THROUGH THIS LINK](git@github.com:Nelitaa/book-an-appointment-back-end.git)
 
+[Link to the back-end](https://github.com/emmanuellmhango/book-an-appointment/pull/17)
+
+Front-end deployed website: http://162.243.166.190/
+Back-end deployed API: http://159.223.131.191:3000/
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -44,7 +49,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://google.com)
+- Front-end deployed website: [Live Demo](http://162.243.166.190/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,17 +113,6 @@ To run tests, run the following command:
 - Twitter: [@MarianelaMunoz](https://twitter.com/MarianelaMunoz_)
 - LinkedIn: [Marianela-munoz](https://www.linkedin.com/in/marianela-munoz/)
 
-👤 **Emmanuel Mhango**
-
-- GitHub: [@emmanuellmhango](https://github.com/emmanuellmhango)
-- LinkedIn: [@emmanuellmhango](https://www.linkedin.com/in/emmanuellmhango)
-
-👤 **Benjamin Ejike**
-
-- GitHub: [@githubhandle](https://github.com/osbentech)
-- Twitter: [@twitterhandle](https://twitter.com/EjikeOsegbo)
-- LinkedIn: [LinkedIn](www.linkedin.com/in/benjamin-ejike-632248206)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
@@ -152,5 +146,13 @@ The design was provided by [Murat Korkmaz](https://www.behance.net/muratk) on Be
 ## 📝 License <a name="license"></a>
 
 This project is [Creative Commons license of the design ](https://creativecommons.org/licenses/by-nc/4.0/legalcode) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 Kanban Board <a name="kanban"></a>
+
+- This is the link to our [Kanban board](https://github.com/users/Nelitaa/projects/9)
+- This is the link to our issue with the screenshots of the initial state of our Kanban board:
+  [Initial state Kanban](https://github.com/Nelitaa/book-an-appointment-back-end/issues/22)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
