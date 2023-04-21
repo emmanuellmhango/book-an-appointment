@@ -61,13 +61,13 @@ export const removeDoctor = (payload) => ({
 
 // API
 export const fetchDoctors = createAsyncThunk(GET, async () => {
-  const response = await fetch('http://localhost:3000/api/v1/doctors');
+  const response = await fetch('http://159.223.131.191:3000/api/v1/doctors');
   const data = await response.json();
   return { data };
 });
 
 export const createDoctor = createAsyncThunk(ADD, async (doctorData) => {
-  const response = await axios.post('http://localhost:3000/api/v1/doctors', { doctor: doctorData });
+  const response = await axios.post('http://159.223.131.191:3000/api/v1/doctors', { doctor: doctorData });
   // console.log(response.data);
   const dispatch = useDispatch();
   dispatch(fetchDoctors());
@@ -75,7 +75,7 @@ export const createDoctor = createAsyncThunk(ADD, async (doctorData) => {
 });
 
 export const deleteDoctor = createAsyncThunk(DELETE, async (id) => {
-  await axios.delete(`http://localhost:3000/api/v1/doctors/${id}`);
+  await axios.delete(`http://159.223.131.191:3000/api/v1/doctors/${id}`);
   return { id }; // Return the deleted doctor's id for updating the state
 });
 

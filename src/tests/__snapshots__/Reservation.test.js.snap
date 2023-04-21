@@ -5,47 +5,79 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <li>
-        <h2>
+      <li
+        class="reservation-card"
+      >
+        <img
+          alt="doctor"
+          class="reservation-image"
+        />
+        <h2
+          class="reservation-name"
+        >
+          Dr.
+           
           John Doe
         </h2>
-        <p
-          class="reservation-date"
-        >
+        <img
+          alt="dots-bar"
+          class="dots-bar"
+          src="dots.png"
+        />
+        <p>
           2023-04-20
         </p>
         <p
           class="reservation-city"
         >
+          Based in
+           
           New York
         </p>
         <button
+          class="reservation-details"
           type="button"
         >
-          Cancel Reservation
+          Cancel
         </button>
       </li>
     </div>
   </body>,
   "container": <div>
-    <li>
-      <h2>
+    <li
+      class="reservation-card"
+    >
+      <img
+        alt="doctor"
+        class="reservation-image"
+      />
+      <h2
+        class="reservation-name"
+      >
+        Dr.
+         
         John Doe
       </h2>
-      <p
-        class="reservation-date"
-      >
+      <img
+        alt="dots-bar"
+        class="dots-bar"
+        src="dots.png"
+      />
+      <p>
         2023-04-20
       </p>
       <p
         class="reservation-city"
       >
+        Based in
+         
         New York
       </p>
       <button
+        class="reservation-details"
         type="button"
       >
-        Cancel Reservation
+        Cancel
       </button>
     </li>
   </div>,
