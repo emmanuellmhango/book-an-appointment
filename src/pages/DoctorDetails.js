@@ -17,33 +17,45 @@ const DoctorDetails = () => {
       <SideBar />
       <div className="doctor-details-container">
         <img className="doctor-details-image" src={doctor.photo} alt="doctor" />
-        <div className="doctor-data">
-          <h2 className="doctor-details-name">
-            Dr.
-            {' '}
-            {doctor.name}
-          </h2>
-          <p className="doctor-details-specialization">
-            Specialization:
-            {doctor.specialization}
-          </p>
-          <p className="doctor-details-city">
-            Based in:
-            {doctor.city}
-          </p>
-          <p className="doctor-details-fee">
-            Charging fee: $
-            {doctor.fee}
-          </p>
-          <p className="doctor-details-experience">
-            Experience:
-            {doctor.experience}
-            years
-          </p>
-          <Link to={`/doctors/${doctor.id}/reserve`}>
-            <button type="button" className="doctor-details-button"> Reserve</button>
-          </Link>
-        </div>
+        <table className="doctor-data">
+          <tbody>
+            <tr className="doctor-details-name">
+              <td>Doctor:</td>
+              <td>{doctor.name}</td>
+            </tr>
+            <tr className="doctor-details-specialization gray-row">
+              <td>Specialization:</td>
+              <td>{doctor.specialization}</td>
+            </tr>
+            <tr className="doctor-details-city">
+              <td>Based in:</td>
+              <td>{doctor.city}</td>
+            </tr>
+            <tr className="doctor-details-fee gray-row">
+              <td>Charging fee:</td>
+              <td>
+                $
+                {doctor.fee}
+              </td>
+            </tr>
+            <tr className="doctor-details-experience">
+              <td>Experience:</td>
+              <td>
+                {Math.round(doctor.experience)}
+                {' '}
+                years
+              </td>
+            </tr>
+            <tr className="gray-row">
+              <td />
+              <td>
+                <Link to={`/doctors/${doctor.id}/reserve`}>
+                  <button type="button" className="doctor-details-button"> Reserve</button>
+                </Link>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

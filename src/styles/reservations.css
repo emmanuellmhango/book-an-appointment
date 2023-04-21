@@ -18,6 +18,16 @@
   padding-bottom: 20px;
 }
 
+.reservations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5rem;
+}
+
 .reservations-container {
   display: flex;
   overflow: hidden;
@@ -36,12 +46,20 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  .reservations-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media only screen and (max-width: 800px) {
   .reservations-section {
     padding-top: 60px;
     padding-left: 0;
+  }
+
+  .reservations-grid {
+    grid-template-columns: 1fr;
   }
 
   .reservations-container {

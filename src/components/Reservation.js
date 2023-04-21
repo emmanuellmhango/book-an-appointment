@@ -31,10 +31,11 @@ const Reservation = ({ reservation, doctor, onDelete }) => {
       <img src={dots} alt="dots-bar" className="dots-bar" />
       <p>{reservation.date}</p>
       <p className="reservation-city">
-        Based on:
+        Based in
+        {' '}
         {reservation.city}
       </p>
-      <button type="button" onClick={handleDelete} className="reservation-details">Cancel Reservation</button>
+      <button type="button" onClick={handleDelete} className="reservation-details">Cancel</button>
     </li>
   );
 };

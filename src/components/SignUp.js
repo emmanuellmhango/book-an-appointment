@@ -12,7 +12,7 @@ const SignUpComponent = () => {
 
   const handleSignUp = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/users', {
+      const response = await axios.post('http://159.223.131.191:3000/users', {
         user: {
           name,
           email,
