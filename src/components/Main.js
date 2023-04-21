@@ -62,7 +62,6 @@ const Main = () => {
                   {doctor.city}
                 </p>
                 <Link to={`/doctors/${doctor.id}`} className="doctor-details-link">
-                  {/* Use Link to navigate to doctor details page */}
                   <button className="doctor-details" type="button">details</button>
                 </Link>
               </div>

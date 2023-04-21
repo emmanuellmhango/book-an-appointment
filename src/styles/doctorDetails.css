@@ -2,7 +2,13 @@
   padding-top: 60px;
   padding-left: 20rem;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  width: 700px;
+  grid-template-columns: 400px 300px;
+}
+
+.doctor-data {
+  border: 2px solid lightgray;
+  border-radius: 10px;
 }
 
 .doctor-details-image {
@@ -20,12 +26,21 @@
   color: black;
 }
 
+.doctor-details-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .doctor-details-button {
   background-color: lightblue;
   color: white;
   border-radius: 10px;
   border: none;
   width: 90px;
-  height: 20px;
+  height: 25px;
   cursor: pointer;
+}
+
+.gray-row {
+  background-color: #f4f4f4;
 }

@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 const Body = () => (
   <header className="header">
-    <span className="header-title">Book An Appointment With Your Doctor</span>
+    <span className="header-title">Book an appointment with your prefered doctor</span>
     <div className="header-book-btn-space">
       <span className="header-book-btn">
-        <Link to="/signin">Sign In</Link>
+        <Link to="/signin" className="link-sign">Sign In</Link>
       </span>
       <span className="space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <span className="header-book-btn-signup">
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/signup" className="link-sign">Sign Up</Link>
       </span>
     </div>
   </header>
